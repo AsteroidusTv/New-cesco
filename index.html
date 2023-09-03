@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' type='text/css' href='./style/main.css'>
+    <link rel='stylesheet' type='text/css' href='./style/post.css'>
+    <link rel='stylesheet' type='text/css' href='./style/comment.css'>
+    <link rel='stylesheet' type='text/css' href='./style/sort.css'>
+    <link rel='stylesheet' type='text/css' href='./style/sign.css'>
+    <link rel="stylesheet" type='text/css' href='./style/settings.css'>
+    <link rel="stylesheet" type='text/css' href="./style/editor.css">
+    <script type='text/javascript' src='./script/popups.js' defer></script>    
+    <script type='text/javascript' src='./script/navbar.js' defer></script>
+    <script type='text/javascript' src='./script/editorFormatting.js' defer></script>
+    
+    <title>new-cesco</title>
+    </head>
+    <body>
+        <header>
+            <h1 class="main-title"><a href="./index.html">cesco</a></h1>
+            <ul class="top-nav">
+                <!-- <li class="top-nav-text"><button onclick="window.location.href='#home'">Home</button></li> -->
+                <li class="top-nav-text"><button onclick="openSigninPopup()">Connexion</button></li>
+                <li class="top-nav-text"><button onclick="openSignupPopup()">Incription</button></li>
+                <!-- <li class="top-nav-text"><button onclick="window.location.href='#disconnection'">Déconnexion</button></li> -->
+                <li class="top-nav-text"><button onclick="openEditorPopup()">Nouveau</button></li>
+                <li class="top-nav-text"><button onclick="openSettingsPopup()">Paramètres</button></li>
+            </ul>
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="choice">
+                <p class="choice-title">Navigation</p>
+                <ul class="top-nav-choice">
+                    <!-- <li class="top-nav-text"><button class="choice-text"onclick="window.location.href='#home'">Home</button></li> -->
+                <li class="top-nav-text"><button class="choice-text" onclick="closeNav(); openSigninPopup();">Connexion</button></li>
+                <li class="top-nav-text"><button class="choice-text" onclick="closeNav(); openSignupPopup();">Incription</button></li>
+                <!-- <li class="top-nav-text"><button class="choice-text "onclick="window.location.href='#disconnection'">Déconnexion</button></li> -->
+                <li class="top-nav-text"><button class="choice-text" onclick="closeNav(); openEditorPopup();">Nouveau</button></li>
+                <li class="top-nav-text"><button class="choice-text" onclick="closeNav(); openSettingsPopup()">Paramètres</button></li>
+                </ul>
+            </div>
+
+        </div>
+        </header>
+            
+        <div class="inter-header-main">
+            <div id="sortDiv" class="sort-div">
+                <label class="sort-selector-label" for="sortSelector"><p class="sort-selector-label-text">Trier</p></label>
+                <select class="sort-selector" id="sortSelector" name="sort">
+                    <option value="latest">Les plus récents en premier</option>
+                    <option value="random">Aléatoire</option>
+                    <option value="positive">Les mieux notés en premier (votes positifs - votes négatifs)</option>
+                    <option value="positiveVotes">Avec le plus de votes positifs en premier</option>
+                    <option value="oldest">Les plus anciens en premier</option>
+                </select>
+                <button onclick="loadInitialPosts()" class="refresh"><b><p class="refresh-text">⟳</p></b></button>
+            </div>
+        </div>
+
+        <main>
+            <div class="post">
+                <div class="top-post">
+                    <img class="post-profile" src="./img/example.png" alt="profile picture">
+                    <div class="post-username-date">
+                        <p class="post-username">Asteroidus</p>
+                        <p class="dash">-</p>
+                        <p class="post-date">01.01.2001</p>
+                    </div>
+                   
+                </div>
+                <div class="middle-post">
+                    <div class="post-vote">
+                        <div class="up-post-vote"><p class="post-vote-char">↑</p><p class="post-vote-number">0</p></div>
+                        <div class="middle-post-vote"><p class="post-vote-char"">↕</p><p class="post-vote-number">3</p></div>
+                        <div class="down-post-vote"><p class="post-vote-char">↓</p><p class="post-vote-number">2</p></div>
+                        
+                    
+                    </div>
+                    <div class="line"></div>
+                    <!-- post-content -->
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt iure soluta doloribus repellat, consequuntur rem minus facere nulla quasi incidunt.</p>
+                    <img class="post-img" src="./img/example2.png" alt="post image">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, iusto!</p>
+                </div>
+                <div class="bottom-post">
+                    <button class="post-buttons">X</button>
+                    <button class="post-buttons"><p class="post-button-text">↑</p></button>
+                    <button class="post-buttons"><p class="post-button-text">↕</p></button>
+                    <button class="post-buttons"><p class="post-button-text">↓</p></button>
+                    <button class="post-buttons" onclick="openCommentPopup()">↵</button>
+                </div>
+            </div>
+
+        <div class="comment-popup" id="commentPopup"">
+            <div class="comment-popup-content">
+                <div class="popup-top">
+                    <h1 class="popup-top-title">Commentaires</h1>
+                    <button class="popup-top-close" onclick="closeCommentPopup()">&times;</button>
+                </div>
+                <div class="comments" id="commentsContainer">
+                    <p class="wait">Please Wait.......</p>
+                </div>
+                <div class="popup-bottom">
+                    <input class="popup-bottom-input" type="text" id="commentTextInput" placeholder="Entrez votre commentaire">
+                    <button class="popup-bottom-send" onclick="submitComment()">></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="signin-popup" id="signinPopup">
+            <div class="signin-popup-content">
+                <button class="popup-top-close sign-close" onclick="closeSigninPopup()">X</button>
+                <h1 class="sign-title">Connexion</h1>
+                <div class="sign-inputs">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input placeholder="Nom d'utilisateur" type="text" class="sign-input" name="username">
+                    
+                    <label for="password">Mot de passe</label>
+                    <input placeholder="Mot de passe" type="password" class="sign-input" name="password">
+                </div>
+                <button class="sign-button">Connexion</button>
+                <a href="#signup">Pas de compte ?</a>
+            </div>
+        </div>
+        
+        <div class="signin-popup" id="signupPopup">
+            <div class="signin-popup-content">
+                <button class="popup-top-close sign-close" onclick="closeSignupPopup()">X</button>
+                <h1 class="sign-title">Inscription</h1>
+                <div class="sign-inputs">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input placeholder="Nom d'utilisateur" type="text" class="sign-input" name="username">
+                    
+                    <label for="password">Mot de passe</label>
+                    <input placeholder="Mot de passe" type="password" class="sign-input" name="password">
+                    
+                    <label for="password">Confirmer le mot de passe</label>
+                    <input placeholder="Confirmer le mot de passe" type="password" class="sign-input" name="password">
+                
+                </div>
+                <button class="sign-button">Connexion</button>
+                <a href="#signup">Deja un compte ?</a>
+            </div>
+        </div>
+        
+        <div class="settings-popup" id="settingsPopup">
+            <div class="settings-content">
+                <div class="settings-subcontent">
+                    <button class="settings-close" onclick="closeSettingsPopup()">X</button>
+                    <h1 class="settings-title">Paramètres</h1>
+
+                    <div class="top-settings">
+                        <label class="file-upload-button">
+                            <input type="file" class="file-input"/>
+                        </label>
+                        <p class="profile-text">Changer de photo de profil</p>
+                    </div>
+
+                    <label class="settings-label" name="username">Changer nom d'utilisateur</label>
+                    <input class="settings-input" type="text" name="username" placeholder="Nom d'utilisateur">
+                    
+                    <label class="settings-label" for="password">Changer de mot de passe</label>
+                    <input class="settings-input" type="password" name="password" placeholder="Nouveau mot de passe">
+                    <input class="settings-input" type="password" name="confirm" placeholder="Confirmer le mot de passe">
+                    
+                    
+                    <label class="settings-label" for="old-password">Mot de passe actuel</label>
+                    <input class="settings-input" type="password" name="old-password" placeholder="Mot de passe actuel">
+
+                    <button class="save-settings">Enregister</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="editor-popup" id="editorPopup">
+            <div class="editor-popup-content">
+
+                <form enctype="multipart/form-data" onsubmit="return getContent()" class="main-form" action="api/newPost.php" method="post"> 
+                    <button class="editor-close" onclick="closeEditorPopup()">X</button>
+                    <div id="postContentEditorDiv" contenteditable="true" class="new-area" >
+                
+                    </div> 
+                    <textarea style="display:none" name="postEditorTextArea" id="postEditorTextArea" ></textarea> 
+                    <div class="sub-area">
+                        <p class="text-length" id="postLength"></p>
+                        <div class="sub-buttons">
+                            <!-- <button type="image" class="sub-button">Images</button> -->
+                
+                            <label id="imageBtn" class="sub-button" for="images-upload">
+                                <p class="sub-button-text">Image</p>
+                            </label>
+                            <input name="postImage" id="images-upload" type="file"/>
+                
+                            <button type="button" onclick="format('bold')" class="sub-button">Gras</button>
+                            <button type="button" onclick="format('italic')" class="sub-button">Italique</button>
+                            <button type="button" onclick="format('underline')" class="sub-button">Souligné</button>
+                        </div>
+                    </div> 
+                    <button class="send" type="submit">Publish</button> 
+                </form>
+            </div>
+        </div>
+
+    </body>
+
+
+    </html>
+

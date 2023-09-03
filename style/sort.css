@@ -1,0 +1,94 @@
+.sort-div {
+    position: relative;
+    border-radius: 100px;
+    border: 2px solid white; 
+    padding: 15px;
+    height: 50px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    width: 80%;
+}
+
+.sort-selector-label {
+    border: 2px solid black;
+    border-radius: 100px;
+    padding: 10px;
+    height: 40px;
+    width: 40px;
+    color: black;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 10px;
+}
+
+.sort-selector-label-text {
+    color: black;
+    font-size: 10px;
+}
+
+.sort-selector {
+    border-radius: 100px;
+    padding: 10px;
+    height: 40px;
+    border: 2px solid gray; 
+    transition: 100ms;
+    background: white;
+    width: 90%;
+}
+
+.sort-selector:focus {
+    border: 2px solid black
+}
+
+.refresh {
+    border-radius: 50%;
+    border: 2px solid black;
+    height: 40px;
+    width: 40px;
+    box-shadow: 3px 3px 0px 0px black;
+    background: white;
+    transition: 100ms ease-in-out;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    
+
+}
+
+.refresh:active {
+transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+.refresh-text {
+    color: black;
+}
+
+@media screen and (max-width: 1000px) {
+    .sort-selector {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .sort-selector {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .sort-selector {
+        width: 60%;
+    }
+}
+

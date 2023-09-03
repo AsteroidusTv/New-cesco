@@ -1,0 +1,136 @@
+
+.post {
+    margin-bottom: 20px;
+    border-radius: var(--standart-radius);
+    width: 80%;
+    height: auto;
+    min-height: 400px;
+    background: white;
+}
+
+.top-post {
+    margin: var(--standart-margin);
+    gap: 10px;
+    display: flex;
+}
+
+.post-profile {
+    border-radius: var(--standart-radius);
+    height: 80px;
+    width: 80px;
+}
+
+.post-username-date {
+    border: 2px solid var(--border-color);
+    border-radius: var(--standart-radius);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-username, .post-date, .dash {
+    font-size: 20px;
+    margin: 5px;
+}
+
+.middle-post {
+   margin: var(--standart-margin);
+}
+
+.post-vote {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.up-post-vote, .middle-post-vote, .down-post-vote {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.post-vote-char {
+    border: 2px solid var(--border-color);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-vote-number {
+    font-size: 20px;
+}
+
+.post-img {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: var(--standart-radius);
+    max-width: 100%;
+}
+
+.bottom-post {
+    border-radius: 0px 0px var(--standart-radius) var(--standart-radius);
+    background-color: rgb(255, 255, 255);
+    height: 50px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.post-buttons {
+    border: 2px solid var(--border-color);
+    border-radius: var(--button-radius);
+    height: 40px;
+    width: 40px;
+    box-shadow: 3px 3px;
+    font-size: 18px;
+    background: white;
+    transition: 100ms;
+    cursor: pointer;
+}
+
+
+.post-buttons.check {
+    box-shadow: 3px 3px black;
+    background: black;
+    color: white;
+}
+
+.post-buttons.check:hover {
+    background: rgb(39, 39, 39);
+}
+
+.post-buttons:hover {
+    background: #d0d0d0;
+}
+
+.post-buttons:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
+
+.post-button-text {
+    transform: translateY(-1px);
+}
+
+@media screen and (max-width: 500px) {
+    .post-username-date {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dash {
+        display: none;
+    }
+
+    .middle-post p {
+        font-size: 14px;
+    }
+}
