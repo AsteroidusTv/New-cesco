@@ -1,0 +1,241 @@
+:root {
+    --button-border: 2px solid #000000;
+    --button-shadow: 3px 3px #000000;
+    --button-background: hsl(0, 0%, 100%);
+    --button-hover-background: #cfcfcf;
+    --button-transform: 3px, 3px;
+    --input-outline: 2px solid #808080;
+    --longed-radius: 50px;
+    --longed-padding: 10px;
+    --longed-width: 500px;
+    --longed-height: 80px;
+    --standart-font-size: 20px;
+    --standart-transition: 100ms;
+    --standart-radius: 10px;
+    --link-color: #000000;
+    --title-bug: 275px;
+}
+
+.circle-button {
+    border: var(--button-border);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--button-shadow);
+    font-size: var(--standart-font-size);
+    background: var(--button-background);
+    cursor: pointer;
+    transition: var(--standart-transition);
+}
+
+.circle-button:active {
+    transform: translate(var(--button-transform));
+    box-shadow: none;
+}
+
+.circle-button.popup-close {
+    position: absolute ;
+    top: 10px;
+    right: 10px;
+}
+
+.longed-button {
+    margin: 10px;
+    margin-bottom: 20px;
+    padding: var(--longed-padding);
+    border: var(--button-border);
+    border-radius: var(--longed-radius);
+    width: var(--longed-width);
+    height: var(--longed-height);
+    min-height: var(--longed-height);
+    box-shadow: var(--button-shadow);
+    font-size: var(--standart-font-size);
+    background: var(--button-background);
+    transition: var(--standart-transition);
+}
+
+.longed-button:active {
+    transform: translate(var(--button-transform));
+    box-shadow: none;
+}
+
+/* Ask for advice */
+/* .circle-button:hover, .longed-button:hover {
+    background: var(--button-hover-background);
+} */
+
+.line {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: var(--standart-radius);
+    height: 2px;
+    width: 100%;
+    background: var(--border-color);
+}
+
+.standart-input {
+    margin: 5px;
+    padding: var(--longed-padding);
+    border: var(--input-outline);
+    border-radius: var(--longed-radius);
+    width: var(--longed-width);
+    height: var(--longed-height);
+    min-height: var(--longed-height);
+    font-size: var(--standart-font-size);
+    transition: var(--standart-transition);
+}
+
+.standart-input:focus {
+    border: var(--button-border);
+    outline: none;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    backdrop-filter: blur(5px);
+    animation: fade-in 250ms ease-in-out;
+    z-index: 4;
+}
+
+.popup.show {
+    display: flex;
+    animation: fade-in 250ms;
+}
+
+.popup.closing {
+    animation: fade-out 250ms ease-in-out;
+}
+
+.popup-content {
+    border-radius: var(--standart-radius);
+    width: 600px;
+    height: 800px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
+    scrollbar-width: none;
+    background: var(--button-background);
+    z-index: 5;
+}
+
+.popup-content::-webkit-scrollbar {
+    display: none;
+}
+
+.popup-title {
+    margin-bottom: 20px;
+    font-size: 62.5px;
+}
+
+.popup-title.title-bug {
+    margin-top: var(--title-bug);
+}
+
+.popup-link {
+    color: var(--link-color);
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .standart-input, .longed-button {
+        width: 350px;
+    }
+
+    .popup-content {
+        width: 450px;
+        height: 650px;
+    }
+
+    .popup-title {
+        margin-top: 50px;
+        font-size: 50px;
+    }
+
+    .popup-link {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .standart-input, .longed-button {
+        width: 300px;
+    }
+
+    .popup-content {
+        width: 400px;
+        height: 600px;
+    }
+
+    .popup-title {
+        margin-top: 70px;
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .standart-input, .longed-button {
+        width: 250px
+    }
+
+    .popup-content {
+        width: 350px;
+        height: 550px;
+    }
+
+    .popup-title {
+        margin-top: 80px;
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .standart-input, .longed-button {
+        width: 225px;
+        height: 60px;
+    }
+
+    .popup-content {
+        width: 300px;
+        height: 500px;
+    }
+
+    .popup-title {
+        margin-top: 120px;
+        font-size: 30px;
+    }
+}

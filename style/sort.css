@@ -1,68 +1,40 @@
+:root {
+    --bg-color-sort: #ffffff;
+    --border: 2px solid #000000;
+    --input-outline: 2px solid #808080;
+    --box-shadow: 3px 3px #000000;
+}
+
 .sort-div {
-    position: relative;
-    border-radius: 100px;
-    border: 2px solid white; 
     padding: 15px;
+    border-radius: 100px; 
+    position: relative;
+    width: 80%;
     height: 50px;
     gap: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: white;
-    width: 80%;
-}
-
-.sort-selector-label {
-    border: 2px solid black;
-    border-radius: 100px;
-    padding: 10px;
-    height: 40px;
-    width: 40px;
-    color: black;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 10px;
-}
-
-.sort-selector-label-text {
-    color: black;
-    font-size: 10px;
+    background: var(--bg-color-sort);
 }
 
 .sort-selector {
     border-radius: 100px;
     padding: 10px;
     height: 40px;
-    border: 2px solid gray; 
+    border: var(--input-outline); 
     transition: 100ms;
-    background: white;
+    background: var(--bg-color-sort);
     width: 90%;
 }
 
 .sort-selector:focus {
-    border: 2px solid black
+    border: var(--border)
 }
 
 .refresh {
-    border-radius: 50%;
-    border: 2px solid black;
-    height: 40px;
-    width: 40px;
-    box-shadow: 3px 3px 0px 0px black;
-    background: white;
-    transition: 100ms ease-in-out;
-    cursor: pointer;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: absolute;
+    font-size: 18px;
     right: 10px;
-    
-
 }
 
 .refresh:active {
@@ -74,21 +46,15 @@ transform: translate(3px, 3px);
     color: black;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 550px) {
     .sort-selector {
         width: 80%;
     }
 }
 
-@media screen and (max-width: 550px) {
-    .sort-selector {
-        width: 70%;
-    }
-}
-
 @media screen and (max-width: 400px) {
     .sort-selector {
-        width: 60%;
+        width: 70%;
     }
 }
 

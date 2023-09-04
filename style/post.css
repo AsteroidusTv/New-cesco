@@ -73,28 +73,16 @@
 }
 
 .bottom-post {
+    margin-bottom: 20px;
     border-radius: 0px 0px var(--standart-radius) var(--standart-radius);
-    background-color: rgb(255, 255, 255);
     height: 50px;
     gap: 10px;
     display: flex;
     justify-content: center;
-
+    align-items: center;
+    background-color: rgb(255, 255, 255);
 
 }
-
-.post-buttons {
-    border: 2px solid var(--border-color);
-    border-radius: var(--button-radius);
-    height: 40px;
-    width: 40px;
-    box-shadow: 3px 3px;
-    font-size: 18px;
-    background: white;
-    transition: 100ms;
-    cursor: pointer;
-}
-
 
 .post-buttons.check {
     box-shadow: 3px 3px black;

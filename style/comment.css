@@ -62,24 +62,6 @@
     margin-left: 10px;
 }
 
-.popup-top-close, .popup-bottom-send {
-    border-radius: var(--button-radius);
-    border: 2px solid black;
-    position: relative;
-    height: 40px;
-    width: 40px;
-    box-shadow: 3px 3px 0px 0px black;
-    background: white;
-    transition: 100ms ease-in-out;
-    cursor: pointer;
-    font-size: 18px;
-    
-    
-}
-
-.popup-top-close {
-    margin-left: 62px;
-}
 
 .comment-top-username, .comment-top-date, .comment-content {
     color: black;
@@ -160,22 +142,3 @@
 
 }
 
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fade-out {
-    0% {
-        opacity: 1;
-    }
-    
-    100% {
-        opacity: 0;
-    }
-}
